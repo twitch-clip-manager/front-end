@@ -2,9 +2,12 @@
   "name": "front-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --hot",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,17 @@
   "bugs": {
     "url": "https://github.com/twitch-clip-manager/front-end/issues"
   },
-  "homepage": "https://github.com/twitch-clip-manager/front-end#readme"
+  "homepage": "https://github.com/twitch-clip-manager/front-end#readme",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react-modal": "^3.3.2"
+  },
+  "devDependencies": {
+    "mobx": "^4.1.0",
+    "mobx-react": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.1.1",
+    "webpack-dev-server": "^3.1.1"
+  }
 }

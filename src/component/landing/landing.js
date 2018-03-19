@@ -1,5 +1,6 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React from 'react';
+import {connect} from 'react-redux';
+import Modal from '../../dashboard/modal/modal';
 // import AuthForm from '../auth/auth-form'
 // import {signupRequest, signinRequest} from '../../action/auth-actions'
 
@@ -15,6 +16,8 @@ class Landing extends React.Component {
     return (
       <div className="landing-container">
         <h1>Twitch Clip Manager</h1>
+
+        <Modal ref={(node) => {this.modal = node;}} />
       </div>
     )
   }
