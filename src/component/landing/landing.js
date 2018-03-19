@@ -1,29 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import AuthForm from '../auth/auth-form'
-// import {signupRequest, signinRequest} from '../../action/auth-actions'
+import ClipItem from '../clip/clip'
+
 
 
 class Landing extends React.Component {
   render() {
-    // console.log('__LANDING_PROPS__', this.props)
-    // let {params} = this.props.match
-    // let onComplete = params.auth === 'signin'
-    //   ? this.props.signin
-    //   : this.props.signup
-
     return (
       <div className="landing-container">
         <h1>Twitch Clip Manager</h1>
+        {this.props.clips ?
+          this.props.clips.map(clip => <ClipItem key={clip.tracking_id} clip={clip}/>) :
+          undefined}
       </div>
     )
   }
 }
 
-// let mapStateToProps = () => ({})
+let mapStateToProps = state => ({
+  clips: state.clips
+})
 // let mapDispatchToProps = dispatch => ({
 //   signup: user => dispatch(signupRequest(user)),
 //   signin: user => dispatch(signinRequest(user)),
 // })
 
-export default Landing
+
+export default connect(mapStateToProps)(Landing);

@@ -1,8 +1,8 @@
 import superagent from 'superagent';
 
-export const getClips = token => ({
+export const getClips = clips => ({
   type: 'GET_CLIPS',
-  payload: token,
+  payload: clips.clips,
 });
 
 // export const tokenDelete = () => ({
@@ -12,12 +12,12 @@ export const getClips = token => ({
 export const getClipsRequest = (state) => dispatch => {
   if(state.game === ''){
     return superagent.get(`${__API_URL__}/clips/channel${state.channel}`)
-        .then(response => console.log(response.body))
+        .then(response => dispatch(getClips(response.body)))
         .catch(err => console.log(err.message))
   }
   if(state.channel === ''){
     return superagent.get(`${__API_URL__}/clips/game${state.game}`)
-      .then(response => console.log(response.body))
+      .then(response => dispatch(getClips(response.body)))
       .catch(err => console.log(err.message))
     }
 };

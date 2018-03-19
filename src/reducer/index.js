@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
-// import token from './auth';
+import clips from './clips';
 // import picture from './picture';
 
 export default combineReducers({
+    clips,
 });
