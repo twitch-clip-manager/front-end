@@ -4,8 +4,6 @@ import superagent from 'superagent'
 import {connect} from 'react-redux'
 import {getClipsRequest} from '../../action/actions'
 
-// const API_URL = 'https://www.reddit.com/r'
-
 class Form extends React.Component {
   constructor(props) {
     super(props)
