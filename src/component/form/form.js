@@ -58,7 +58,7 @@ class Form extends React.Component {
 
 let mapStateToProps = () => ({})
 let mapDispatchToProps = dispatch => ({
-  getClips: () => dispatch(getClipsRequest()),
+  getClips: (state) => dispatch(getClipsRequest(state)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

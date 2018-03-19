@@ -9,12 +9,17 @@ export const getClips = token => ({
 //   type: 'TOKEN_DELETE',
 // });
 
-export const getClipsRequest = () => dispatch => {
-  return superagent.get(`${__API_URL__}/clips/top`)
-    // .set('Client-ID', '490xfzohxg3ilxjcq7uifjssyqwo5e')
-    // .set('Accept', 'application/vnd.twitchtv.v5+json')
-    .then(response => console.log(response.body))
-    .catch(err => console.log(err.message))
+export const getClipsRequest = (state) => dispatch => {
+  if(state.game === ''){
+    return superagent.get(`${__API_URL__}/clips/channel${state.channel}`)
+        .then(response => console.log(response.body))
+        .catch(err => console.log(err.message))
+  }
+  if(state.channel === ''){
+    return superagent.get(`${__API_URL__}/clips/game${state.game}`)
+      .then(response => console.log(response.body))
+      .catch(err => console.log(err.message))
+    }
 };
 
 export const signinRequest = user => dispatch => {
