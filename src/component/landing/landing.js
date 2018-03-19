@@ -2,13 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import ClipItem from '../clip/clip'
 
-
-
 class Landing extends React.Component {
   render() {
     return (
       <div className="landing-container">
         <h1>Twitch Clip Manager</h1>
+
         {this.props.clips ?
           this.props.clips.map(clip => <ClipItem key={clip.tracking_id} clip={clip}/>) :
           undefined}
