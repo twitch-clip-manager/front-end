@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import superagent from 'superagent'
+import {connect} from 'react-redux'
+import {getClipsRequest} from '../../action/actions'
 
 // const API_URL = 'https://www.reddit.com/r'
 
@@ -22,11 +24,11 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    // this.props.update_state(this.state)
+    this.props.getClips(this.state)
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <form
         className={this.props.search_error ? "form-error search-form" : "search-form"}
@@ -54,4 +56,9 @@ class Form extends React.Component {
   }
 }
 
-export default Form
+let mapStateToProps = () => ({})
+let mapDispatchToProps = dispatch => ({
+  getClips: () => dispatch(getClipsRequest()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
