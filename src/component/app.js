@@ -4,6 +4,7 @@ import {Provider} from 'react-redux'
 import createStore from '../lib/app-create-store'
 import {BrowserRouter, Route, Redirect} from 'react-router-dom'
 import Form from './form/form'
+import Channel from './channel/channel-form'
 const store = createStore()
 
 export default class App extends React.Component {
