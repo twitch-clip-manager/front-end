@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import clips from './clips';
-import source from './source';
+import sources from './sources';
+import thumbnails from './thumbnails';
 
 export default combineReducers({
     clips,
-    source,
+    sources,
+    thumbnails,
 });

@@ -5,12 +5,16 @@ import ClipItem from '../clip/clip'
 
 
 class Landing extends React.Component {
+
+
   render() {
+    console.log(this.props.clips)
     return (
       <div className="landing-container">
         <h1>Twitch Clip Manager</h1>
         {this.props.clips ?
-          this.props.clips.map(clip => <ClipItem key={clip.tracking_id} clip={clip}/>) :
+          <ClipItem key={this.props.clips[0].tracking_id} clip={this.props.clips[0]} thumbnails={this.props.thumbnails} />
+          :
           undefined}
       </div>
     )
@@ -18,12 +22,10 @@ class Landing extends React.Component {
 }
 
 let mapStateToProps = state => ({
-  clips: state.clips
+  clips: state.clips,
+  sources: state.sources,
+  thumbnails: state.thumbnails,
 })
-// let mapDispatchToProps = dispatch => ({
-//   signup: user => dispatch(signupRequest(user)),
-//   signin: user => dispatch(signinRequest(user)),
-// })
 
 
 export default connect(mapStateToProps)(Landing);
