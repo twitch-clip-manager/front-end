@@ -21,7 +21,7 @@ export default class App extends React.Component {
         <Provider store={store}>
           <BrowserRouter>
             <React.Fragment>
-              <Form/>
+              <Route exact path="/create" component={Form}/>
               <Route exact path="/" component={Landing}/>
             </React.Fragment>
           </BrowserRouter>
