@@ -6,7 +6,7 @@ class ClipItem extends React.Component {
         <div className="clip-item">
           <h2>{this.props.clip.broadcaster.display_name}</h2>
           <h3>{this.props.clip.title}</h3>
-          <iframe id={this.props.clip.tracking_id} src={this.props.clip.embed_url}></iframe>
+          <video id={this.props.clip.tracking_id} src={"https://clips-media-assets.twitch.tv/AT-" + this.props.clip.tracking_id + "-854x480.mp4#t=0"} type="video/mp4" controls></video>
         </div>
       )
     }
