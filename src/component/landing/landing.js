@@ -11,9 +11,9 @@ class Landing extends React.Component {
     console.log(this.props.clips)
     return (
       <div className="landing-container">
-        <h1>Twitch Clip Manager</h1>
+        <h1>Twitcher</h1>
         {this.props.clips ?
-          <ClipItem key={this.props.clips[0].tracking_id} clip={this.props.clips[0]} thumbnails={this.props.thumbnails} />
+          <ClipItem key={this.props.clips[0].tracking_id} clips={this.props.clips} thumbnails={this.props.thumbnails} />
           :
           undefined}
       </div>
