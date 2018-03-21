@@ -16,6 +16,7 @@ let plugins = [
   new DefinePlugin({
     __DEBUG__: JSON.stringify(!production),
     __API_URL__: JSON.stringify(process.env.API_URL),
+    __CLIENT_ID__: JSON.stringify(process.env.TWITCH_CLIENT_ID),
   }),
 ];
 
