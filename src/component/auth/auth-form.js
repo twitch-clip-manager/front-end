@@ -37,6 +37,10 @@ export default class AuthForm extends React.Component {
     .catch(error => this.setState({error}))
   }
 
+  buttonText(){
+    return this.props.sign === 'signup' ? 'Sign Up' : 'Sign In';
+  }
+
   render() {
     return (
       <form
@@ -68,7 +72,7 @@ export default class AuthForm extends React.Component {
           value={this.state.password}
           onChange={this.handleChange}/>
 
-        <button type="submit">{this.props.buttonText}</button>
+        <button type="submit">{this.buttonText()}</button>
       </form>
     )
   }
