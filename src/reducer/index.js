@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
 import clips from './clips';
-// import picture from './picture';
+import channels from './channel';
+import games from './game';
 
 export default combineReducers({
-    clips
+    clips, channels, games
 });

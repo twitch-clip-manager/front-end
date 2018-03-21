@@ -12,13 +12,13 @@ export const channelCreate = channel => ({
   payload: channel
 })
 
-export const channelUpdate = channel => ({
-  type: 'CHANNEL_UPDATE',
+export const channelDelete = channel => ({
+  type: 'CHANNEL_DELETE',
   payload: channel
 })
 
-export const channelDelete = channel => ({
-  type: 'CHANNEL_DELETE',
+export const channelListSet = channel => ({
+  type: 'CHANNEL_LIST_SET',
   payload: channel
 })
 
@@ -30,21 +30,15 @@ export const channelFetchRequest = () => dispatch => {
 }
 
 export const channelCreateRequest = channel => (dispatch, getState) => {
+  console.log(__API_URL__);
   return superagent.post(`${__API_URL__}/api/v1/channel`)
   .send(channel)
   .then(res => dispatch(channelCreate(res.body)))
   .catch(logError)
 }
 
-export const channelUpdateRequest = channel => dispatch => {
-  return superagent.post(`${__API_URL__}/api/v1/channel/${channel._id}`)
-  .send(channel)
-  .then(res => dispatch(channelUpdate(channel)))
-  .catch(logError)
-}
-
 export const channelDeleteRequest = channel => dispatch => {
-  return superagent.delete(`${__API_URL__}/api/v1/channel/${channel._id}`)
+  return superagent.delete(`${__API_URL__}/api/v1/channel/${channel}`)
   .then(res => dispatch(channelDelete(channel)))
   .catch(logError)
 }

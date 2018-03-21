@@ -1,27 +1,28 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {channelListSet} from '../../action/channel-actions';
 
-export default class ChannelForm extends React.Component {
+class ChannelForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             editing: false,
-            channel: this.props.channel
-            ? this.props.channel
-            : {name: ''},
+            channel: '',
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSumbit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(e) {
         let {name, value} = e.target
-        this.setState(({album: {[name]: value}}))
+        this.setState(({[name]: value}))
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.onComplete(this.state.channel);
-        Object.keys(this.state.channel).map(key => this.setState({[key]: ''}))
+        console.log(this.state.channel)
+        this.props.channelListSet(this.state.channel)
+        // Object.keys(this.state.channel).map(key => this.setState({[key]: ''}))
     }
     
     render() {
@@ -29,9 +30,9 @@ export default class ChannelForm extends React.Component {
             <form className="channel-form" onSubmit={this.handleSubmit}>
                 <input
                     type="text"
-                    name="name"
+                    name="channel"
                     placeholder="enter a favorite channel"
-                    value={this.state.channel.name}
+                    value={this.state.channel}
                     onChange={this.handleChange}/>
 
                 <button type="submit">{this.props.buttonText}</button>
@@ -39,3 +40,11 @@ export default class ChannelForm extends React.Component {
         )
     }
 }
+
+let mapStateToProps = () => ({})
+
+let mapDispatchToProps = dispatch => ({
+  channelListSet: (channel) => dispatch(channelListSet(channel)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelForm);
