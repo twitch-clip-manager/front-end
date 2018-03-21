@@ -1,19 +1,25 @@
-import * as actions from '../action/actions';
+import * as actions from '../src/action/actions';
 // import CategoryForm from '../components/category/category-form';
 
 describe('actions', () => {
-  it('should create an action to add a category', () => {
-    let clips = { title: 'this is a title' };
+  it('should create an action to get clips', () => {
+    let mockClips = { clips: ['mock clip'] };
 
     const expectedAction = {
-      type: 'CATEGORY_CREATE',
-      payload: category,
+      type: 'GET_CLIPS',
+      payload: mockClips,
     };
 
-    let action = actions.getClips(category);
+    let action = actions.getClips(mockClips);
 
-    expect(action.type).toEqual('CATEGORY_CREATE');
-    expect(action.payload).toHaveProperty('_id');
-    expect(action.payload).toHaveProperty('timestamp');
+    expect(action.type).toEqual('GET_CLIPS');
+    expect(action.payload[0]).toEqual('mock clip');
   });
+  // it('should make a call to get clips from twitch api', () => {
+  //   let mockState = {games:'Overwatch', channel: ''}
+  //   actions.getClipsRequest(mockState)
+
+  //   // expect(action.type).toEqual('GET_CLIPS');
+  //   // expect(action.payload[0]).toEqual('mock clip');
+  // });
 });
