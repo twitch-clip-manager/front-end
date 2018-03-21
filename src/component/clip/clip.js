@@ -13,7 +13,6 @@ class ClipItem extends React.Component {
       this.setState({counter: 0})
     }
     handleSlide(){
-      console.log(this.state.counter, this.props.thumbnails.length)
       this.setState((prevState) => {
           if(this.state.counter >= this.props.thumbnails.length - 1){
             return {counter: 0};

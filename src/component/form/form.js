@@ -18,12 +18,12 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleAutoComplete = this.handleAutoComplete.bind(this)
     this.searchByGame = this.searchByGame.bind(this)
-    this.parseResults = this.parseResults.bind(this)
+    this.searchByChannel = this.searchByChannel.bind(this)
+    this.parseGameResults = this.parseGameResults.bind(this)
+    this.parseChannelResults = this.parseChannelResults.bind(this)
   }
 
   handleChange(e) {
-    console.log(e.target.name);
-    
     if (e.target.name === 'input-game') this.setState({game: e.target.value})
     if (e.target.name === 'input-channel') this.setState({channel: e.target.value})
   }
@@ -40,18 +40,26 @@ class Form extends React.Component {
       .then(res => res.body.games)
   }
 
+  searchByChannel(channel) {
+    return superagent.get(`https://api.twitch.tv/kraken/search/channels?query=${channel}&limit=50`)
+      .set('Client-ID', __CLIENT_ID__)
+      .set('Accept', 'application/vnd.twitchtv.v5+json')
+      .then(res => res.body.channels)
+  }
+
   handleAutoComplete(e) {
     const { name, value } = e.target;
     if (name === 'game') {
       this.setState({ game: value }, () => {
         return this.searchByGame(this.state.game)
-          .then(this.parseResults)
+          .then(this.parseGameResults)
           .then(res => this.setState({searchGameResults: res }))
       })
     } else {
       this.setState({ channel: value }, () => {
-        return this.searchByChannel(this.state.game)
-        .then(console.log)
+        return this.searchByChannel(this.state.channel)
+        .then(this.parseChannelResults)
+        .then(res => this.setState({searchChannelResults: res }))
       })
     }
     // this.setState({game: e.target.value}, () => {
@@ -59,7 +67,7 @@ class Form extends React.Component {
     //     .then(this.parseResults)
     // })
   }
-  parseResults(searchResults) {
+  parseGameResults(searchResults) {
     return searchResults.map((result, i ) => {
       return {
         label: result.name,
@@ -67,10 +75,16 @@ class Form extends React.Component {
       }
     })
   }
-
+  parseChannelResults(searchResults) {
+    return searchResults.map((result, i ) => {
+      return {
+        label: result.display_name,
+      }
+    })
+  }
   render() {
     const renderItem = (item, highlighted) => {
-      return <div key={item.id} className='autocomplete=item'>
+      return <div key={item.label} className='autocomplete-item'>
         {item.label}
       </div>
     }
@@ -107,21 +121,6 @@ class Form extends React.Component {
         className={this.props.search_error ? "form-error search-form" : "search-form"}
         onSubmit={this.handleSubmit}>
 
-        {/* <input
-          type="text"
-          name="input-game"
-          value={this.state.game}
-          onChange={(this.handleChange)}
-          placeholder="GAME"/>
-        
-        <input
-          type="text"
-          name="input-channel"
-          value={this.state.channel}
-          onChange={this.handleChange}
-          placeholder="CHANNEL"
-          /> */}
-
         <Autocomplete 
           value={this.state.game}
           onChange={this.handleAutoComplete}
@@ -138,13 +137,9 @@ class Form extends React.Component {
         
         <Autocomplete 
           value={this.state.channel}
-          onChange={this.handleChange}
+          onChange={this.handleAutoComplete}
           name="channel"
-          items={[
-            {label: 'apple'},
-            {label: 'orange'},
-            {label: 'banana'},
-          ]}
+          items={this.state.searchChannelResults}
           getItemValue={item=> item.label}
           renderItem={renderItem}
           renderInput={renderChannelInput}
