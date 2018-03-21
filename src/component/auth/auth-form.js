@@ -16,6 +16,7 @@ export default class AuthForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.buttonText = this.buttonText.bind(this);
   }
 
   handleChange(e) {
@@ -67,7 +68,7 @@ export default class AuthForm extends React.Component {
           value={this.state.password}
           onChange={this.handleChange}/>
 
-        <button type="submit">{this.props.auth}</button>
+        <button type="submit">{this.props.buttonText}</button>
       </form>
     )
   }

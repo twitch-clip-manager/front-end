@@ -5,6 +5,8 @@ import ChannelForm from '../channel/channel-form'
 import { channelFetchRequest, channelCreateRequest, channelDeleteRequest} from '../../action/channel-actions'
 import GameForm from '../game/game-form'
 import { gameFetchRequest, gameCreateRequest, gameDeleteRequest} from '../../action/game-actions'
+import AuthForm from '../auth/auth-form'
+import {signupRequest, signinRequest} from '../../action/auth-actions'
 
 class Landing extends React.Component {
   componentWillMount() {
@@ -15,6 +17,10 @@ class Landing extends React.Component {
     console.log('land = ', this.props )
     return (
       <div className="landing-container">
+        <AuthForm
+        auth={params.auth}
+        onComplete={onComplete}/>
+
         <h1>Twitch Clip Manager</h1>
         {this.props.clips ?
           this.props.clips.map(clip => <ClipItem key={clip.tracking_id} clip={clip}/>) :
