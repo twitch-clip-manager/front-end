@@ -14,7 +14,13 @@ class Landing extends React.Component {
   }
   
   render() {
-    console.log('land = ', this.props )
+
+    console.log('__LANDING_PROPS__', this.props)
+    let {params} = this.props.match
+    let onComplete = params.auth === 'signin'
+      ? this.props.signin
+      : this.props.signup
+    
     return (
       <div className="landing-container">
         <AuthForm
@@ -68,6 +74,8 @@ let mapDispatchToProps = dispatch => ({
   fetchGames: () => dispatch(gameFetchRequest()),
   createGame: game => dispatch(gameCreateRequest()),
   deleteGame: game => dispatch(gameDeleteRequest()),
+  signup: user => dispatch(signupRequest(user)),
+  signin: user => dispatch(signinRequest(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
