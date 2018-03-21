@@ -29,7 +29,8 @@ class Landing extends React.Component {
 
         <h1>Twitch Clip Manager</h1>
         {this.props.clips ?
-          this.props.clips.map(clip => <ClipItem key={clip.tracking_id} clip={clip}/>) :
+          <ClipItem key={this.props.clips[0].tracking_id} clips={this.props.clips} thumbnails={this.props.thumbnails} />
+          :
           undefined}
 
         <ChannelForm
@@ -65,8 +66,13 @@ class Landing extends React.Component {
 }
 
 let mapStateToProps = state => ({
-  clips: state.clips, channels: state.channels, games: state.games
+  clips: state.clips,
+  channels: state.channels,
+  games: state.games,
+  sources: state.sources,
+  thumbnails: state.thumbnails,
 })
+
 let mapDispatchToProps = dispatch => ({
   fetchChannels: () => dispatch(channelFetchRequest()),
   createChannel: channel => dispatch(channelCreateRequest()),
