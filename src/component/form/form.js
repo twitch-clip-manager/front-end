@@ -113,6 +113,7 @@ class Form extends React.Component {
 
         <Autocomplete 
           value={this.state.game}
+
           onChange={this.handleAutoComplete}
           items={this.state.searchGameResults}
           getItemValue={item=> item.label}
@@ -139,7 +140,8 @@ class Form extends React.Component {
           }}
           
         />
-        <button type="submit">Search</button>
+        <button id="submitbutton" type="submit">Search</button>
+
 
       </form>
     )
