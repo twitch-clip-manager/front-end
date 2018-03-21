@@ -50,13 +50,13 @@ class Form extends React.Component {
   handleAutoComplete(e) {
     const { name, value } = e.target;
     if (name === 'game') {
-      this.setState({ game: value }, () => {
+      this.setState({ game: value, channel:'' }, () => {
         return this.searchByGame(this.state.game)
           .then(this.parseGameResults)
           .then(res => this.setState({searchGameResults: res }))
       })
     } else {
-      this.setState({ channel: value }, () => {
+      this.setState({ channel: value, game: '' }, () => {
         return this.searchByChannel(this.state.channel)
         .then(this.parseChannelResults)
         .then(res => this.setState({searchChannelResults: res }))
