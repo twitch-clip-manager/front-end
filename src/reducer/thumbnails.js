@@ -9,7 +9,6 @@ export default (state=null, action) => {
       })
       return sources;
     }
-    // case 'TOKEN_DELETE': return null;
     default: return state;
     }
-  };
+};
