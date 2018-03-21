@@ -23,10 +23,19 @@ export const getClipsRequest = (state) => dispatch => {
 };
 
 export const signinRequest = user => dispatch => {
-  return superagent.get(`${__API_URL__}/login`)
+  return superagent.get(`${__API_URL__}/signin`)
     .auth(user.username, user.password)
     .then(res => {
       dispatch(tokenSet(res.text));
       localStorage.setItem('userid', res.body._id);
+    });
+};
+
+export const logoutRequest = token => dispatch => {
+  return superagent.put(`${__API_URL__}/logout`)
+    .set('Authorization', 'Bearer ${token}')
+    .then(res => {
+      dispatch(tokenDelete());
+      localStorage.token.clear();
     });
 };

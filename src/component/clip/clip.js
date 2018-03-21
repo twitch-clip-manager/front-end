@@ -24,7 +24,7 @@ class ClipItem extends React.Component {
 
 
       })
-      // document.getElementById('twitchVid').play()
+      document.getElementById('twitchVid').play()
     }
 
     render() {
