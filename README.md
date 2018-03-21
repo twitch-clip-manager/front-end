@@ -55,11 +55,9 @@ Back-end .env
 
 ```
 PORT=3000
-TWITCH_CLIENT_ID=490xfzohxg3ilxjcq7uifjssyqwo5e
-MONGODB_URI=mongodb://localhost/channels
-NODE_ENV=channels
-GOOGLE_OAUTH_ID=490788826435-tfhnuedkmtgk2rkdqulj6rp3326jue58.apps.googleusercontent.com
-GOOGLE_OAUTH_SECRET=oVGNb1uo2g7cm1Oevv-1EXVE
+TWITCH_CLIENT_ID=<Twitch Client ID>
+MONGODB_URI=mongodb://localhost/twitch
+NODE_ENV=twitch
 CLIENT_URL=http://localhost:8080
 API_URL=http://localhost:3000
 ```
