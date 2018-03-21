@@ -14,18 +14,12 @@ class Form extends React.Component {
       searchGameResults: [],
       searchChannelResults: [],
     }
-    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleAutoComplete = this.handleAutoComplete.bind(this)
     this.searchByGame = this.searchByGame.bind(this)
     this.searchByChannel = this.searchByChannel.bind(this)
     this.parseGameResults = this.parseGameResults.bind(this)
     this.parseChannelResults = this.parseChannelResults.bind(this)
-  }
-
-  handleChange(e) {
-    if (e.target.name === 'input-game') this.setState({game: e.target.value})
-    if (e.target.name === 'input-channel') this.setState({channel: e.target.value})
   }
 
   handleSubmit(e) {
@@ -62,10 +56,6 @@ class Form extends React.Component {
         .then(res => this.setState({searchChannelResults: res }))
       })
     }
-    // this.setState({game: e.target.value}, () => {
-    //   return SEARCH_BY_TITLE(this.state.game)
-    //     .then(this.parseResults)
-    // })
   }
   parseGameResults(searchResults) {
     return searchResults.map((result, i ) => {
