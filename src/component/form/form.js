@@ -38,7 +38,7 @@ class Form extends React.Component {
           value={this.state.game}
           onChange={this.handleChange}
           placeholder="dota"/>
-        
+
         <input
           type="text"
           name="input-channel"
@@ -46,8 +46,8 @@ class Form extends React.Component {
           onChange={this.handleChange}
           placeholder="the doc"
           />
-          
-        <button type="submit">Search</button>
+
+        <button id="submitbutton" type="submit">Search</button>
 
       </form>
     )
