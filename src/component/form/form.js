@@ -35,13 +35,16 @@ class Form extends React.Component {
   }
 
   searchByChannel(channel) {
-    return superagent.get(`https://api.twitch.tv/kraken/search/channels?query=${channel}&limit=50`)
+    return superagent.get(`https://api.twitch.tv/kraken/search/channels?query=${channel}`)
       .set('Client-ID', __CLIENT_ID__)
       .set('Accept', 'application/vnd.twitchtv.v5+json')
       .then(res => res.body.channels)
   }
 
   handleAutoComplete(e) {
+
+    // document.getElementsByClassName("populated-field").nextSibling.setAttribute("style", "height: 200px;");
+
     const { name, value } = e.target;
     if (name === 'game') {
       this.setState({ game: value, channel:'' }, () => {
@@ -103,7 +106,7 @@ class Form extends React.Component {
       fontSize: '90%',
       position: 'fixed',
       overflow: 'auto',
-      maxHeight: '50%',
+      maxHeight: '135px',
     }
     return (
       
@@ -142,7 +145,7 @@ class Form extends React.Component {
           }}
           
         />
-        <button id="submitbutton" type="submit">Search</button>
+        <button id="submitbutton" type="submit">search</button>
 
 
       </form>
