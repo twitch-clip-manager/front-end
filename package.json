@@ -61,6 +61,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "react-autocomplete": "^1.8.1",
     "redux-devtools-extension": "^2.13.2"
   }
 }

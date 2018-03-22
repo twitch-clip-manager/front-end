@@ -1,79 +1,79 @@
-import React from 'react'
-import {renderIf} from '../../lib/utils'
+import React from 'react';
+import { renderIf } from '../../lib/utils';
 
 export default class AuthForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state ={
-      username: '',
-      email: '',
-      password: '',
-      usernameError: '',
-      emailError: '',
-      passwordError: '',
-      error: '',
+    constructor(props) {
+        super(props);
+        this.state ={
+            username: '',
+            email: '',
+            password: '',
+            usernameError: '',
+            emailError: '',
+            passwordError: '',
+            error: '',
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.buttonText = this.buttonText.bind(this);
     }
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.buttonText = this.buttonText.bind(this);
-  }
+    handleChange(e) {
+        let {name, value} = e.target;
+        this.setState({
+            [name]: value.trim(),
+            usernameError: name === 'username' && !value.trim() ? 'Username required' : null,
+            emailError: name === 'email' && !value.trim() ? 'Email required' : null,
+            passwordError: name === 'password' && !value.trim() ? 'Password required' : null,
+        });
+    }
 
-  handleChange(e) {
-    let {name, value} = e.target
-    this.setState({
-      [name]: value.trim(),
-      usernameError: name === 'username' && !value.trim() ? 'Username required' : null,
-      emailError: name === 'email' && !value.trim() ? 'Email required' : null,
-      passwordError: name === 'password' && !value.trim() ? 'Password required' : null,
-    })
-  }
+    handleSubmit(e) {
+        e.preventDefault();
+        let {username, email, password} = this.state;
+        this.props.onComplete({ username, email, password })
+            .then(() => this.setState({ username: '', email: '', password: '' }))
+            .catch(error => this.setState({error}));
+    }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    let {username, email, password} = this.state
-    this.props.onComplete({ username, email, password })
-    .then(() => this.setState({ username: '', email: '', password: '' }))
-    .catch(error => this.setState({error}))
-  }
+    buttonText(){
+        return this.props.location === '/signup' ? 'Sign Up' : 'Sign In';
+    }
 
-  buttonText(){
-    return this.props.sign === 'signup' ? 'Sign Up' : 'Sign In';
-  }
+    render() {
+        return (
+            <form
+                className="auth-form"
+                onSubmit={this.handleSubmit}
+                noValidate>
 
-  render() {
-    return (
-      <form
-        className="auth-form"
-        onSubmit={this.handleSubmit}
-        noValidate>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}/>
+                {renderIf(this.state.usernameError, <span className="tooltip">{this.state.usernameError}</span>)}
 
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          value={this.state.username}
-          onChange={this.handleChange}/>
-        {renderIf(this.state.usernameError, <span className="tooltip">{this.state.usernameError}</span>)}
+                {renderIf(this.props.location === '/signup',
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}/>
+                )}
 
-        {renderIf(this.props.auth === 'signup',
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={this.state.email}
-            onChange={this.handleChange}/>
-        )}
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}/>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          value={this.state.password}
-          onChange={this.handleChange}/>
-
-        <button type="submit">{this.buttonText()}</button>
-      </form>
-    )
-  }
+                <button type="submit">{this.buttonText()}</button>
+            </form>
+        );
+    }
 }
