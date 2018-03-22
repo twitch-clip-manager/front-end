@@ -1,24 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import AuthForm from '../auth/auth-form';
-import {signupRequest, signinRequest, createProfileRequest, getProfileRequest} from '../../action/auth-actions';
+import {signupRequest, signinRequest} from '../../action/auth-actions';
 import { log } from '../../lib/utils';
 
 class Content extends React.Component {
     render() {
-        // console.log('__LANDING_PROPS__', this.props.match);
-        // let {location} = this.props;
+        console.log('__LANDING_PROPS__', this.props);
+        let {location} = this.props;
         
-        // let onComplete = location.pathname === 'signin'
-        //     ? this.props.signin
-        //     : this.props.signup,
-    
-        let {params} = this.props.match;
-    
-        let onComplete = {
-            login: params.sign === 'signin' ? this.props.signin : this.props.signup,
-            getProfile: params.sign === 'signin' ?  this.props.getProfileRequest : this.props.createProfileRequest,
-        };              
+        let onComplete = location.pathname === '/signin'
+            ? this.props.signin
+            : this.props.signup;
 
         return (
             <div className="content-container">
@@ -36,8 +29,8 @@ let mapStateToProps = () => ({});
 let mapDispatchToProps = dispatch => ({
     signup: user => dispatch(signupRequest(user)),
     signin: user => dispatch(signinRequest(user)),
-    createProfileRequest: token => dispatch(createProfileRequest(token)),
-    getProfileRequest: token => dispatch(getProfileRequest(token)),
+    // createProfileRequest: token => dispatch(createProfileRequest(token)),
+    // getProfileRequest: token => dispatch(getProfileRequest(token)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

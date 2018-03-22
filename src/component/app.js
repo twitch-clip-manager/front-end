@@ -22,15 +22,22 @@ export default class App extends React.Component {
                     <BrowserRouter>
                         <React.Fragment>
                             <Route exact path="/" component={Content}/>
-                            <Route exact path="/signup" component={Content}/>
+                            {/* <Route exact path="/signup" component={Content}/> */}
                             <Route exact path="/signin" component={Content}/>
                             <Route exact path="/landing" component={Landing}/>
                    
                             <Route exact path="/" component={() =>
                                 token
                                     ? <Landing token={token}/>
-                                    : <Redirect to="/signup"/>}
+                                    : <Redirect to="/signup"/>}        
                             />
+
+                            <Route exact path="/signup" component={() =>
+                                token
+                                    ? <Redirect to="/landing"/>
+                                    : <Content/>}                                   
+                            />
+
                         </React.Fragment>
                     </BrowserRouter>
                 </Provider>

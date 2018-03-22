@@ -13,7 +13,6 @@ export const signupRequest = user => dispatch => {
     return superagent.post(`${__API_URL__}/signup`)
         .send(user)
         .then(res => {
-            console.log('response: ', res);
             dispatch(tokenSet(res.text));
             try {
                 localStorage.setItem('token', res.text);
