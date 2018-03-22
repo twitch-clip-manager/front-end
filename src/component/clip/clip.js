@@ -8,7 +8,6 @@ class ClipItem extends React.Component {
       super()
       this.state = {counter: 0}
       this.handleSlide = this.handleSlide.bind(this)
-      this.log = this.log.bind(this)
     }
 
 
@@ -30,7 +29,6 @@ function togglePlay() {
 
 function updateButton() {
   const icon = this.paused ? '►' : '❚ ❚';
-  // console.log(icon);
   toggle.textContent = icon;
 }
 
@@ -95,9 +93,6 @@ togglePlay()
 
       })
       document.getElementById('twitchVid').play()
-    }
-    log(){
-      console.log('whoops')
     }
 
     render() {

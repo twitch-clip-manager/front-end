@@ -7,10 +7,6 @@ import Form from './form/form'
 const store = createStore()
 
 export default class App extends React.Component {
-//   componentWillMount() {
-//     if(localStorage.token)
-//       store.dispatch({type: 'TOKEN_SET', payload: localStorage.token})
-//   }
 
 
   render() {
