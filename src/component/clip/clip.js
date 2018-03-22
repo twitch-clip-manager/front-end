@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import superagent from 'superagent'
 
 class ClipItem extends React.Component {
 
@@ -7,6 +8,7 @@ class ClipItem extends React.Component {
       super()
       this.state = {counter: 0}
       this.handleSlide = this.handleSlide.bind(this)
+      this.log = this.log.bind(this)
     }
 
 
@@ -94,12 +96,15 @@ togglePlay()
       })
       document.getElementById('twitchVid').play()
     }
+    log(){
+      console.log('whoops')
+    }
 
     render() {
       return (
           <div className="clip-item">
             <div className="player">
-              <video className="player__video viewer" onEnded={this.handleSlide} id="twitchVid" src={"https://clips-media-assets.twitch.tv/AT-" + this.props.thumbnails[this.state.counter] + "-854x480.mp4#t=0"} type="video/mp4" autoPlay></video>
+              <video className="player__video viewer" onEnded={this.handleSlide} id="twitchVid" src={"https://clips-media-assets.twitch.tv/AT-" + this.props.thumbnails[this.state.counter] + "-854x480.mp4#t=0"} type="video/mp4" onError={this.handleSlide} autoPlay></video>
               <div className="player__controls">
               <div className="progress">
               <div className="progress__filled"></div>
@@ -111,6 +116,7 @@ togglePlay()
               <button data-skip="10" className="player__button">10s »</button>
               </div>
             </div>
+            
           <a href={this.props.clips[this.state.counter].broadcaster.channel_url}>
             <img className="user-logo" src={this.props.clips[this.state.counter].broadcaster.logo} />
           </a>

@@ -20,10 +20,10 @@ describe('form', () => {
     })
 })
 
-// describe('', () => {
-//     test('', () => {
+// describe('clip item', () => {
+//     test('testing clip item state', () => {
 //         let mockClips = [{broadcaster: {display_name: 'kappa'}}]
-//         let clipWrapper = mount(<Provider store={createStore()}><ClipItem clips={mockClips} thumbnails={[4]} /></Provider>)
+//         let clipWrapper = mount(<Provider store={createStore()}><ClipItem clips={mockClips} thumbnails={[4] } /></Provider>)
 //         clipWrapper.setState({counter: 0})
 //         console.log(clipWrapper)
 //         clipWrapper.setProps({clips: ['test']})
@@ -31,15 +31,15 @@ describe('form', () => {
 //         console.log('props',clipWrapper.props)
 //         expect(clipWrapper.state().counter).toEqual(0)
 //     })
-//     test('', () => {
-//         let mockClips2 = [{broadcaster: {display_name: 'kappa'}}]
-//         let mockThumbnails2 = [210550942]
-//         let clipWrapper2 = mount(<Provider store={createStore()}><ClipItem clips={mockClips2} thumbnails={mockThumbnails2} /></Provider>)
-//         clipWrapper2.setState({counter: 2})
-//         console.log(clipWrapper2.html())
-//         // console.log(clipWrapper2.find('video'))
-//         clipWrapper2.find('video').simulate('ended');
-//         // expect(clipWrapper2.handleSlide).toHaveBeenCalled()
-//         expect(clipWrapper2.state().counter).toEqual(0)
-//     })
+    // test('', () => {
+    //     let mockClips2 = [{broadcaster: {display_name: 'kappa'}}]
+    //     let mockThumbnails2 = [210550942]
+    //     let clipWrapper2 = mount(<Provider store={createStore()}><ClipItem clips={mockClips2} thumbnails={mockThumbnails2} /></Provider>)
+    //     clipWrapper2.setState({counter: 2})
+    //     console.log(clipWrapper2.html())
+    //     // console.log(clipWrapper2.find('video'))
+    //     clipWrapper2.find('video').simulate('ended');
+    //     // expect(clipWrapper2.handleSlide).toHaveBeenCalled()
+    //     expect(clipWrapper2.state().counter).toEqual(0)
+    // })
 // })
