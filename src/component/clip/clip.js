@@ -134,7 +134,6 @@ togglePlay()
 
 
   let mapStateToProps = state => ({
-    sources: state.sources
   })
 
   export default connect(mapStateToProps)(ClipItem);

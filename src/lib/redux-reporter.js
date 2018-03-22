@@ -4,6 +4,7 @@ let reporter = store => next => action => {
     try {
       let result = next(action);
       console.log('__STATE__', store.getState());
+      console.log(result)
       return result;
     } catch(e) {
       e.action = action;

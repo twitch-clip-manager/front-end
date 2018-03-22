@@ -23,7 +23,6 @@ class Landing extends React.Component {
 
 let mapStateToProps = state => ({
   clips: state.clips,
-  sources: state.sources,
   thumbnails: state.thumbnails,
 })
 

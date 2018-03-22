@@ -113,7 +113,6 @@ class Form extends React.Component {
 
         <Autocomplete 
           value={this.state.game}
-
           onChange={this.handleAutoComplete}
           items={this.state.searchGameResults}
           getItemValue={item=> item.label}
