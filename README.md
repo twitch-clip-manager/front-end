@@ -39,7 +39,6 @@ Table of Contents
 ---
 
 ### Prerequisites
----
 
 Fork front-end Repository from: https://github.com/twitch-clip-manager/front-end
 
@@ -58,19 +57,14 @@ TWITCH_CLIENT_ID=<insert your twitch client ID>
 "npm run watch" to build webpack
 
 ---
----
-
 ### How to Use
----
 
-<address link>
+https://twitch-clip-manager.herokuapp.com/
 
 Log in to Twitch Clip Manager and use input fields to customize a Twitch tv search. The site will return and render up to 10 "stitched" clips for the viewer and the design allows a user to functionally navigate the video.
 
 ---
-
 ### Dependencies
----
 
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -103,38 +97,41 @@ Log in to Twitch Clip Manager and use input fields to customize a Twitch tv sear
     "webpack-dev-server": "^2.11.1",
     "react-autocomplete": "^1.8.1",
     "redux-devtools-extension": "^2.13.2"
----
----
 
+---
 ### Deployment
 
-- Heroku
+- [Heroku](https://twitch-clip-manager.herokuapp.com/)
 - Travis CI
 
+---
 ### Built with 
 - JavaScript
 - React/Redux
 - Nodemon
 - MongoDB
 - npm
----
 
+---
 ### Authors
 - [Bill Odell](https://www.linkedin.com/in/bill-odell-b99a0052/)
 - [Rima Hiraoka](https://www.linkedin.com/in/rima-hiraoka-795b4b148/)
 - [Richard Montgomery](https://www.linkedin.com/in/montgomeryrd/)
 - [Joe Waine](https://www.linkedin.com/in/joe-waine/)
 
+---
 ### License
 - This project is licensed under [MIT license.](https://github.com/twitch-clip-manager/front-end/blob/master/LICENSE)
 
+---
 ### Acknowledgements
 
 - [Code Fellows Faculty](https://www.codefellows.org/)
 - [Twitch TV](https://dev.twitch.tv/)
 
-### User Stories:
 ---
+### User Stories:
+
 As a User,
  I want fast access to my favorite stream's content and highlight reels.
 

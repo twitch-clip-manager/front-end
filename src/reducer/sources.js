@@ -3,12 +3,12 @@ export default (state=null, action) => {
 
     switch(type) {
     case 'GET_CLIPS':{
-      let sources = payload.map((clip) => {
-        return clip.tracking_id
-      })
-      return sources;
+        let sources = payload.map((clip) => {
+            return clip.tracking_id;
+        });
+        return sources;
     }
     // case 'TOKEN_DELETE': return null;
     default: return state;
     }
-  };
+};
