@@ -23,7 +23,15 @@
     },
     "verbose": true,
     "collectCoverage": true,
-    "coverageDirectory": "./coverage"
+    "coverageDirectory": "./coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 2,
+        "functions": 2,
+        "lines": 2,
+        "statements": 2
+      }
+    }
   },
   "keywords": [],
   "author": "Code Fellows, LLC",
