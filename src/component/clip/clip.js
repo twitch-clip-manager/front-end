@@ -97,24 +97,31 @@ togglePlay()
 
     render() {
       return (
-        <div className="clip-item">
-          <h1>{this.props.clips[this.state.counter].game}</h1>
-          <h2>{this.props.clips[this.state.counter].broadcaster.display_name}</h2>
+          <div className="clip-item">
+            <div className="player">
+              <video className="player__video viewer" onEnded={this.handleSlide} id="twitchVid" src={"https://clips-media-assets.twitch.tv/AT-" + this.props.thumbnails[this.state.counter] + "-854x480.mp4#t=0"} type="video/mp4" autoPlay></video>
+              <div className="player__controls">
+              <div className="progress">
+              <div className="progress__filled"></div>
+              </div>
+              <button className="player__button toggle" title="Toggle Play">►</button>
+              <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" defaultValue="1" />
+              <input type="range" name="playbackRate" className="player__slider" min="0.5" max="2" step="0.1" defaultValue="1" />
+              <button data-skip="-5" className="player__button">« 5s</button>
+              <button data-skip="10" className="player__button">10s »</button>
+              </div>
+            </div>
+          <a href={this.props.clips[this.state.counter].broadcaster.channel_url}>
+            <img className="user-logo" src={this.props.clips[this.state.counter].broadcaster.logo} />
+          </a>
+          <h2 className="user-name">
+            <a href={this.props.clips[this.state.counter].broadcaster.channel_url}>
+                {this.props.clips[this.state.counter].broadcaster.display_name}
+            </a>
+          </h2>
           <h3>{this.props.clips[this.state.counter].title}</h3>
-       <div className="player">
-        <video className="player__video viewer" onEnded={this.handleSlide} id="twitchVid" src={"https://clips-media-assets.twitch.tv/AT-" + this.props.thumbnails[this.state.counter] + "-854x480.mp4#t=0"} type="video/mp4" autoPlay></video>
-     <div className="player__controls">
-       <div className="progress">
-        <div className="progress__filled"></div>
-       </div>
-       <button className="player__button toggle" title="Toggle Play">►</button>
-       <input type="range" name="volume" className="player__slider" min="0" max="1" step="0.05" defaultValue="1" />
-       <input type="range" name="playbackRate" className="player__slider" min="0.5" max="2" step="0.1" defaultValue="1" />
-       <button data-skip="-10" className="player__button">« 10s</button>
-       <button data-skip="25" className="player__button">25s »</button>
-     </div>
-   </div>
-        </div>
+          </div>
+
       )
     }
   }
