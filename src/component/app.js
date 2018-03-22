@@ -24,10 +24,12 @@ export default class App extends React.Component {
                             <Route exact path="/" component={Content}/>
                             <Route exact path="/signup" component={Content}/>
                             <Route exact path="/signin" component={Content}/>
+                            <Route exact path="/landing" component={Landing}/>
+                   
                             <Route exact path="/" component={() =>
                                 token
                                     ? <Landing token={token}/>
-                                    : <Redirect to="/welcome/signup"/>}
+                                    : <Redirect to="/signup"/>}
                             />
                         </React.Fragment>
                     </BrowserRouter>

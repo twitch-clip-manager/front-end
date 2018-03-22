@@ -1,4 +1,4 @@
-# front-end
+# Twitch Clip Manager
 
 General Information:
 ---
@@ -9,7 +9,7 @@ github repo: https://github.com/twitch-clip-manager
 
 version: 1.0.0
 
-Twitch Clip Manager is a video manager that searches through Twitch TV's API for relatable content and renders video clips in a continuous manner. The functionality "stitches" clips together for the viewer.
+Twitch Clip Manager is a video manager that allows user searches through Twitch TV's API for relatable content and renders video clips in a continuous manner. The functionality "stitches" clips together for the viewer.
 
 ---
 ---
@@ -32,8 +32,6 @@ Table of Contents
 [License](#license)
 
 [Acknowledgements](#acknowledgements)
-
-[User Stories](#user-stories)
 
 ---
 ---
@@ -61,7 +59,7 @@ TWITCH_CLIENT_ID=<insert your twitch client ID>
 
 https://twitch-clip-manager.herokuapp.com/
 
-Log in to Twitch Clip Manager and use input fields to customize a Twitch tv search. The site will return and render up to 10 "stitched" clips for the viewer and the design allows a user to functionally navigate the video.
+Use Twitch Clip Manager's input fields to customize a Twitch tv search. The site will return and render up to 10 "stitched" clips for the viewer, and the design allows a user to functionally navigate the video.
 
 ---
 ### Dependencies
@@ -108,14 +106,11 @@ Log in to Twitch Clip Manager and use input fields to customize a Twitch tv sear
 ### Built with 
 - JavaScript
 - React/Redux
-- Nodemon
-- MongoDB
-- npm
 
 ---
 ### Authors
 - [Bill Odell](https://www.linkedin.com/in/bill-odell-b99a0052/)
-- [Rima Hiraoka](https://www.linkedin.com/in/rima-hiraoka-795b4b148/)
+- [Rima Hiraoka](https://www.github/sobacha/)
 - [Richard Montgomery](https://www.linkedin.com/in/montgomeryrd/)
 - [Joe Waine](https://www.linkedin.com/in/joe-waine/)
 
@@ -128,39 +123,3 @@ Log in to Twitch Clip Manager and use input fields to customize a Twitch tv sear
 
 - [Code Fellows Faculty](https://www.codefellows.org/)
 - [Twitch TV](https://dev.twitch.tv/)
-
----
-### User Stories:
-
-As a User,
- I want fast access to my favorite stream's content and highlight reels.
-
-As a User,
- I want to view related content in a continuous manner rather than individually searching through videos.
-
-As a User,
- I want to be able to dign in and have my preferences and favorite content saved.
-
----
-
-As a Developer,
- I want to create a single page application with user friendly UX design.
-
-As a Developer,
- I want to provide quick access to user content and "stitch" content together so that a user can see a reel of related content.
-
-As a Developer,
- I want to have secure authentication that users can save their preferences.
-
----
-
-As a Marketer,
- I want the experience of viewing content to be stream-lined.
-
-As a Marketer,
- I want the user to feel our product gives them easy access and control of their viewing content.
-
-As a Marketer,
- I want the user to value the application in the way that it fulfills a need.
- 
- ---
