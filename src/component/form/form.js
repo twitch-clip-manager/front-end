@@ -112,7 +112,9 @@ class Form extends React.Component {
         onSubmit={this.handleSubmit}>
 
         <Autocomplete 
+          className="autocomplete-game"
           value={this.state.game}
+          name="game"
           onChange={this.handleAutoComplete}
           items={this.state.searchGameResults}
           getItemValue={item=> item.label}
@@ -126,9 +128,10 @@ class Form extends React.Component {
         />
         
         <Autocomplete 
+          className="autocomplete-channel"
           value={this.state.channel}
-          onChange={this.handleAutoComplete}
           name="channel"
+          onChange={this.handleAutoComplete}
           items={this.state.searchChannelResults}
           getItemValue={item=> item.label}
           renderItem={renderItem}
