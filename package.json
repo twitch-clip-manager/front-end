@@ -1,5 +1,5 @@
 {
-  "name": "36-d18",
+  "name": "twitch-clip-manager",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -27,15 +27,15 @@
     "coverageDirectory": "./coverage",
     "coverageThreshold": {
       "global": {
-        "branches": 2,
-        "functions": 2,
-        "lines": 2,
-        "statements": 2
+        "branches": 30,
+        "functions": 30,
+        "lines": 30,
+        "statements": 30
       }
     }
   },
   "keywords": [],
-  "author": "Code Fellows, LLC",
+  "author": "twitch-codefellows-team",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
