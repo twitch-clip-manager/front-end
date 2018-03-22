@@ -35,7 +35,7 @@ class Form extends React.Component {
   }
 
   searchByChannel(channel) {
-    return superagent.get(`https://api.twitch.tv/kraken/search/channels?query=${channel}&limit=50`)
+    return superagent.get(`https://api.twitch.tv/kraken/search/channels?query=${channel}`)
       .set('Client-ID', __CLIENT_ID__)
       .set('Accept', 'application/vnd.twitchtv.v5+json')
       .then(res => res.body.channels)
