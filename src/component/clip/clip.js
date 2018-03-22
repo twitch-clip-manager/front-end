@@ -125,7 +125,9 @@ togglePlay()
                 {this.props.clips[this.state.counter].broadcaster.display_name}
             </a>
           </h2>
-          <h3>{this.props.clips[this.state.counter].title}</h3>
+          <h3>{this.props.clips[this.state.counter].title}
+          <a href={this.props.clips[this.state.counter].url}>Watch on Twitch.tv!</a>
+          </h3>
           </div>
 
       )
