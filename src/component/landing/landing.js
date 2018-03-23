@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ClipItem from '../clip/clip';
 import Image from '../image';
+import TwitcherImage from '../../assets/twitcher.png'
 
 
 class Landing extends React.Component {
@@ -11,7 +12,7 @@ class Landing extends React.Component {
         return (
             <div className="landing-container">
       
-                <h1>Twitcher</h1>
+                <h1><img src={TwitcherImage} /></h1>
                 {this.props.clips ?
                     <ClipItem key={this.props.clips[0].tracking_id} clips={this.props.clips} thumbnails={this.props.thumbnails} />
                     :
