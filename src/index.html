@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
   <style>
 html {
   box-sizing: border-box;
@@ -17,13 +20,20 @@ html {
 body {
   margin: 0;
   padding: 0;
-  display:flex;
+  border: 5px solid #fff;
   background:#7A419B;
   min-height:100vh;
-  background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+  background-color: #4b367c;
   background-size:cover;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+#root{
+  width: 45%;
+  margin: 0 auto;
 }
 
 .player {
@@ -64,6 +74,7 @@ body {
 
 .player__button:focus {
   border-color: #ffc600;
+  background: #d5c3ff;
 }
 
 .player__slider {
@@ -108,6 +119,7 @@ body {
 .progress__filled {
   width:50%;
   background:#ffc600;
+  background: #d5c3ff;
   flex:0;
   flex-basis:50%;
 }
@@ -137,6 +149,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 15px;
   border-radius: 50px;
   background: #ffc600;
+  background: #d5c3ff;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3.5px;
@@ -160,18 +173,176 @@ input[type=range]::-moz-range-thumb {
   width: 15px;
   border-radius: 50px;
   background: #ffc600;
+  background: #d5c3ff;
   cursor: pointer;
 }
-  </style>
+
+
+.user-logo{
+    border-radius: 95px;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+
+.user-name{
+  margin-top: 29px;
+}
+
+.user-name a{
+  color: white;
+  text-decoration:  none;
+}
+
+.user-name a:hover{
+  text-decoration: underline;
+}
+
+h3{
+  font-size: 18px;
+  text-transform: lowercase;
+  margin-left: 68px;
+}
+
+
+.autocomplete-item{
+  color: #7A419B;
+  padding: 5px 10px;
+  font-size: 20px;
+  font-family: system-ui;
+  font-weight: 200;
+}
+
+input,
+#submitbutton{
+    margin: 10px;
+    font-size: 20px;
+    padding: 4px;
+}
+
+.landing-container h1{
+  text-align: center;
+  margin:150px auto 20px;
+  margin-top: 20%;
+}
+
+.search-form{
+  border-radius: 5px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.populated-field{ 
+  margin: 8px;
+  box-sizing: border-box;
+  margin-right: 8px;
+  -webkit-appearance: none;
+  background: transparent;
+  border-top: transparent !important;
+  border-left: transparent !important;
+  border-right: transparent !important;
+  font-weight: 200;
+  color: white;
+  padding-left: 0;
+  width: 280px;
+}
+
+h1 img{
+  width: 200px;
+}
+
+textarea,
+input,
+button{
+  outline: none; 
+  }
+
+
+  #submitbutton{
+    background-color: #b6b1de00;
+    border: 1px solid white;
+    color: #fff;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: system-ui;
+    font-weight: 100;
+    letter-spacing: 0;
+    border-radius: 5px;
+    -webkit-transition: background .25s; /* Safari */
+    transition: background .25s;
+
+}
+
+
+
+#submitbutton:hover{
+  background: #fff;
+  color: #7A419B;
+}
+
+
+button#submitbutton{
+  margin-left: 10px;
+}
+
+.clip-item h3{
+  background: #b6b1de;
+  color: black;
+  padding: 10px;
+  font-size: 12px;
+}
+
+h3 a{
+  float: right;
+  color: #521c71;
+  text-decoration: underline
+}
+
+
+.populated-field[aria-expanded="false"] + div{
+    margin-left: -8px;
+    margin-top: -10px;
+    height: 0;
+}
+
+
+
+.populated-field[aria-expanded="true"] + div{
+    margin-left: -8px;
+    margin-top: -10px;
+}
+
+
+.autocomplete-item:hover{
+  background: #d4cbe2;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+
+</style>
 </head>
 <body>
   <div id="root"></div>
-
-
-
-
-
-
-  </script>
 </body>
 </html>

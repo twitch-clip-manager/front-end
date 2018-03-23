@@ -6,4 +6,4 @@ export default (state=null, action) => {
     // case 'TOKEN_DELETE': return null;
     default: return state;
     }
-  };
+};

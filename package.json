@@ -1,5 +1,5 @@
 {
-  "name": "36-d18",
+  "name": "twitch-clip-manager",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -9,7 +9,8 @@
     "test": "jest",
     "heroku-postbuild": "webpack -p --progress",
     "test:watch": "jest --watchAll",
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint ."
   },
   "engines": {
     "node": "9.3.0"
@@ -17,6 +18,7 @@
   "jest": {
     "globals": {
       "__DEBUG__": false,
+      "__API_URL__": "localhost:3000",
       "process.env": {
         "NODE_ENV": "testing"
       }
@@ -26,15 +28,15 @@
     "coverageDirectory": "./coverage",
     "coverageThreshold": {
       "global": {
-        "branches": 2,
-        "functions": 2,
-        "lines": 2,
-        "statements": 2
+        "branches": 30,
+        "functions": 30,
+        "lines": 30,
+        "statements": 30
       }
     }
   },
   "keywords": [],
-  "author": "Code Fellows, LLC",
+  "author": "twitch-codefellows-team",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -47,6 +49,8 @@
     "dotenv": "^5.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.9",
     "html-webpack-plugin": "^2.30.1",
