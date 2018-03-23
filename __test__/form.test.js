@@ -12,24 +12,24 @@ import Form from '../src/component/form/form';
 
 describe('Form component', () => {
 
-  let wrapper;
-  let initialState;
-  let store;
-  beforeAll(() => {
-    initialState = {'channel': ''};
-    store = createStore(initialState);
-    wrapper = mount(<Provider store={store}><Form /></Provider>);
-    wrapper.setProps({onComplete: jest.fn()});
-  });
-  afterAll(() => wrapper.unmount());
+    let wrapper;
+    let initialState;
+    let store;
+    beforeAll(() => {
+        initialState = {'channel': ''};
+        store = createStore(initialState);
+        wrapper = mount(<Provider store={store}><Form /></Provider>);
+        wrapper.setProps({onComplete: jest.fn()});
+    });
+    afterAll(() => wrapper.unmount());
 
-  test('should have an initial state for channel', () => {
-    wrapper.setState(initialState);
-    expect(wrapper.state('channel')).toEqual('');
-  });
+    test('should have an initial state for channel', () => {
+        wrapper.setState(initialState);
+        expect(wrapper.state('channel')).toEqual('');
+    });
 
-  test('should have autocomplete component', () => {
-    expect(wrapper.find('Autocomplete').length).toBe(2);
-  });
+    test('should have autocomplete component', () => {
+        expect(wrapper.find('Autocomplete').length).toBe(2);
+    });
 
 });
