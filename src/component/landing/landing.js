@@ -11,7 +11,7 @@ class Landing extends React.Component {
         return (
             <div className="landing-container">
       
-                <h1><img src="../src/assets/twitcher.png" /></h1>
+                <h1><img src="/src/assets/twitcher.png" /></h1>
                 {this.props.clips ?
                     <ClipItem key={this.props.clips[0].tracking_id} clips={this.props.clips} thumbnails={this.props.thumbnails} />
                     :
